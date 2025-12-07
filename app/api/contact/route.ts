@@ -22,8 +22,16 @@ export async function POST(request: NextRequest) {
     const RESEND_API_KEY = process.env.RESEND_API_KEY
     const TO_EMAIL = process.env.CONTACT_EMAIL || 'santi.jrs.sg@gmail.com'
 
+    // Debug logging (solo en desarrollo o para troubleshooting)
+    console.log('🔍 Debug Contact API:')
+    console.log('- RESEND_API_KEY exists:', !!RESEND_API_KEY)
+    console.log('- RESEND_API_KEY length:', RESEND_API_KEY?.length || 0)
+    console.log('- CONTACT_EMAIL:', TO_EMAIL)
+    console.log('- Request from:', email)
+
     if (!RESEND_API_KEY) {
       // Si no hay API key, usar un servicio alternativo o simplemente loguear
+      console.error('❌ RESEND_API_KEY no configurada en variables de entorno')
       console.log('📧 Email recibido (sin API key configurada):')
       console.log('De:', name, `<${email}>`)
       console.log('Mensaje:', message)
@@ -31,7 +39,9 @@ export async function POST(request: NextRequest) {
       // En producción, deberías configurar RESEND_API_KEY
       return NextResponse.json(
         {
-          success: true,
+          success: false,
+          error:
+            'Configuración de email no disponible. Por favor contacta directamente.',
           message: 'Mensaje recibido. Te contactaremos pronto.',
           note: 'Email API no configurada - revisa los logs del servidor',
         },
@@ -109,14 +119,23 @@ Puedes responder directamente a este email para contactar a ${name}.
 
     if (!response.ok) {
       const error = await response.json()
-      console.error('Error al enviar email:', error)
+      console.error('❌ Error al enviar email con Resend:')
+      console.error('- Status:', response.status)
+      console.error('- Error:', JSON.stringify(error, null, 2))
+      console.error('- API Key usado:', RESEND_API_KEY.substring(0, 10) + '...')
+
       return NextResponse.json(
-        { error: 'Error al enviar el email' },
+        {
+          error: 'Error al enviar el email',
+          details: error.message || 'Error desconocido',
+          status: response.status,
+        },
         { status: 500 }
       )
     }
 
     const data = await response.json()
+    console.log('✅ Email enviado exitosamente:', data.id || 'OK')
 
     return NextResponse.json(
       { success: true, message: 'Mensaje enviado correctamente' },
