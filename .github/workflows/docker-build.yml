@@ -1,0 +1,28 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: docker build -t portfolio-brutalista:latest .
+
+      - name: Test Docker image
+        run: |
+          docker run -d -p 3000:3000 --name test-container portfolio-brutalista:latest
+          sleep 10
+          curl -f http://localhost:3000 || exit 1
+          docker stop test-container
+          docker rm test-container
