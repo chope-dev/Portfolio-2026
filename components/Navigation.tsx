@@ -16,47 +16,47 @@ export default function Navigation() {
     >
       {/* Browser Window Header */}
       <div className="bg-white border-b-4 border-black px-4 py-2 relative">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Left: Logo and Controls */}
-          <div className="flex items-center gap-3">
-            <div className="border-4 border-black bg-white px-3 py-1">
-              <span className="font-grotesk font-black text-sm text-black">
-                Santiago Giorgetti
-              </span>
-            </div>
-            <div className="flex gap-1">
-              <div className="w-4 h-4 rounded-full bg-neo-pink border-2 border-black"></div>
-              <div className="w-4 h-4 rounded-full bg-neo-yellow border-2 border-black"></div>
-              <div className="w-4 h-4 rounded-full bg-neo-lime border-2 border-black"></div>
-            </div>
+        {/* Left: Controls and Logo */}
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-3">
+          <div className="flex gap-1">
+            <div className="w-4 h-4 rounded-full bg-neo-pink border-2 border-black"></div>
+            <div className="w-4 h-4 rounded-full bg-neo-yellow border-2 border-black"></div>
+            <div className="w-4 h-4 rounded-full bg-neo-lime border-2 border-black"></div>
           </div>
+          <div className="border-4 border-black bg-white px-3 py-1">
+            <span className="font-grotesk font-black text-sm text-black">
+              Santiago Giorgetti
+            </span>
+          </div>
+        </div>
 
+        <div className="max-w-7xl mx-auto flex items-center justify-end">
           {/* Right: Action Buttons */}
           <div className="hidden md:flex items-center gap-2">
             <button className="border-4 border-black bg-neo-darkGreen text-white px-4 py-2 font-black text-sm uppercase shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000] transition-all">
-              ALL CATEGORY ↓
+              full-stack
             </button>
             <button className="border-4 border-black bg-neo-purple text-white px-4 py-2 font-black text-sm uppercase shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000] transition-all">
-              REGISTER NOW →
+              Futuro Data Engineer
             </button>
           </div>
-
-          {/* Menu Button - Always at the end */}
-          <motion.button
-            onClick={() => setIsMenuOpen(true)}
-            animate={{
-              x: isMenuOpen ? -148 : 0,
-            }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="border-4 border-black bg-white w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition-colors cursor-pointer absolute right-4 top-2"
-          >
-            <div className="flex flex-col gap-1">
-              <div className="w-4 h-0.5 bg-black"></div>
-              <div className="w-4 h-0.5 bg-black"></div>
-              <div className="w-4 h-0.5 bg-black"></div>
-            </div>
-          </motion.button>
         </div>
+
+        {/* Menu Button - Always at the end */}
+        <motion.button
+          onClick={() => setIsMenuOpen(true)}
+          animate={{
+            x: isMenuOpen ? -148 : 0,
+          }}
+          transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+          className="absolute right-4 top-2 border-4 border-black bg-white w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition-colors cursor-pointer"
+        >
+          <div className="flex flex-col gap-1">
+            <div className="w-4 h-0.5 bg-black"></div>
+            <div className="w-4 h-0.5 bg-black"></div>
+            <div className="w-4 h-0.5 bg-black"></div>
+          </div>
+        </motion.button>
       </div>
 
       {/* Tab Navigation */}
