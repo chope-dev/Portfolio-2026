@@ -57,9 +57,9 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative flex justify-center md:justify-start"
           >
-            <div className="border-2 border-gray-800 bg-gray-200 shadow-[4px_4px_0px_0px_#000] ml-8">
+            <div className="border-2 border-gray-800 bg-gray-200 shadow-[4px_4px_0px_0px_#000] md:ml-8 w-full max-w-xs md:max-w-none">
               {/* Title Bar */}
               <div className="bg-[#0080FF] text-white px-2 py-1 flex items-center justify-between border-b-2 border-gray-800">
                 <div className="flex items-center gap-2">
