@@ -60,34 +60,34 @@ export default function Navigation() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="flex border-b-4 border-black">
+      <div className="flex border-b-4 border-black overflow-x-auto scrollbar-hide">
         <a
           href="#home"
-          className="border-r-4 border-black bg-neo-yellow text-black px-6 py-3 font-black text-sm uppercase hover:bg-yellow-300 transition-colors"
+          className="border-r-4 border-black bg-neo-yellow text-black px-4 md:px-6 py-3 font-black text-xs md:text-sm uppercase hover:bg-yellow-300 transition-colors whitespace-nowrap flex-shrink-0"
         >
           HOME
         </a>
         <a
           href="#projects"
-          className="border-r-4 border-black bg-neo-coral text-white px-6 py-3 font-black text-sm uppercase hover:bg-neo-coralDark transition-colors"
+          className="border-r-4 border-black bg-neo-coral text-white px-4 md:px-6 py-3 font-black text-xs md:text-sm uppercase hover:bg-neo-coralDark transition-colors whitespace-nowrap flex-shrink-0"
         >
           PROJECTS
         </a>
         <a
           href="#about"
-          className="border-r-4 border-black bg-neo-darkGreen text-white px-6 py-3 font-black text-sm uppercase hover:bg-green-800 transition-colors"
+          className="border-r-4 border-black bg-neo-darkGreen text-white px-4 md:px-6 py-3 font-black text-xs md:text-sm uppercase hover:bg-green-800 transition-colors whitespace-nowrap flex-shrink-0"
         >
           ABOUT US
         </a>
         <a
           href="#skills"
-          className="border-r-4 border-black bg-neo-purple text-white px-6 py-3 font-black text-sm uppercase hover:bg-purple-700 transition-colors"
+          className="border-r-4 border-black bg-neo-purple text-white px-4 md:px-6 py-3 font-black text-xs md:text-sm uppercase hover:bg-purple-700 transition-colors whitespace-nowrap flex-shrink-0"
         >
           SKILLS
         </a>
         <a
           href="#contact"
-          className="bg-neo-yellow text-black px-6 py-3 font-black text-sm uppercase hover:bg-yellow-300 transition-colors"
+          className="bg-neo-yellow text-black px-4 md:px-6 py-3 font-black text-xs md:text-sm uppercase hover:bg-yellow-300 transition-colors whitespace-nowrap flex-shrink-0"
         >
           CONTACT
         </a>
