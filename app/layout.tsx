@@ -15,8 +15,8 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio Brutalista',
-  description: 'Portfolio personal con diseño brutalista moderno',
+  title: 'Portfolio Santiago Giorgetti',
+  description: 'Portfolio personal - full stack developer.',
 }
 
 export default function RootLayout({
